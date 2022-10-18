@@ -1,14 +1,14 @@
-import React from 'react'
-import styles from './MainHeader.module.css';
-import Navigation from './Navigation';
+import React from "react";
+import styles from "./MainHeader.module.css";
+import Navigation from "./Navigation";
 
-const MainHeader = () => {
+const MainHeader = (props) => {
   return (
-    <header className={styles['main-headder']}>
-        <h1>A Typical Page</h1>
-        <Navigation/>
+    <header className={styles["main-headder"]}>
+      <h1>A Typical Page</h1>
+      {props.isLoggedIn && <Navigation />}
     </header>
-  )
-}
+  );
+};
 
-export default MainHeader
+export default MainHeader;

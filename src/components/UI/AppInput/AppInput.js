@@ -8,7 +8,15 @@ const AppInput = (props) => {
   return (
     <div className={style["form-control"]}>
       <label>{props.lable}</label>
-      <input value={props.value} onChange={onChangeHandler} type={props.type} />
+      <div>
+        <input
+          value={props.value}
+          onChange={onChangeHandler}
+          type={props.type}
+          onBlur={props.onBlur}
+        />
+        {props.error && <span>{props.error}</span>}
+      </div>
     </div>
   );
 };
