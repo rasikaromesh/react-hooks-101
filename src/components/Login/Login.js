@@ -23,7 +23,7 @@ const Login = (props) => {
 
   const onClickedLogin = (event) => {
     event.preventDefault();
-    console.log(isFormValied);
+  
     if (!isFormValied) {
       validateEmailHandler();
       validatePasswordhandler();

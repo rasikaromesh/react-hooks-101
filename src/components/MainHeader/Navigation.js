@@ -8,13 +8,13 @@ const Navigation = (props) => {
       {props.isLoggedIn && (
         <ul>
           <li>
-            <a href="#">Users</a>
+            <a href="/">Users</a>
           </li>
           <li>
-            <a href="#">Admin</a>
+            <a href="/">Admin</a>
           </li>
           <li>
-            <AppButton />
+            <AppButton className={styles['logout-btn']} lable='Logout' onClick={props.onLogout} />
           </li>
         </ul>
       )}

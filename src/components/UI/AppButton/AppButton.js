@@ -6,7 +6,7 @@ const AppButton = (props) => {
     <button
       onClick={props.onClick}
       type={props.type ? props.type : "button"}
-      className={styles.button}
+      className={props.className? `${styles.button} ${props.className}`: styles.button}
     >
       {props.lable ? props.lable : "Okay"}
     </button>
