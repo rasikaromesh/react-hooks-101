@@ -5,8 +5,8 @@ import Navigation from "./Navigation";
 const MainHeader = (props) => {
   return (
     <header className={styles["main-headder"]}>
-      <h1>A Typical Page</h1>
-      {props.isLoggedIn && <Navigation />}
+      <h1>The Titile</h1>
+      <Navigation isLoggedIn={props.isLoggedIn} />
     </header>
   );
 };
