@@ -4,9 +4,12 @@ import styles from "./AppButton.module.css";
 const AppButton = (props) => {
   return (
     <button
+      disabled={props.disabled}
       onClick={props.onClick}
       type={props.type ? props.type : "button"}
-      className={props.className? `${styles.button} ${props.className}`: styles.button}
+      className={
+        props.className ? `${styles.button} ${props.className}` : styles.button
+      }
     >
       {props.lable ? props.lable : "Okay"}
     </button>

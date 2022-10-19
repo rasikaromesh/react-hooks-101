@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../UI/Card/Card";
 import AppButton from "../UI/AppButton/AppButton";
 import AppInput from "../UI/AppInput/AppInput";
@@ -11,19 +11,28 @@ const Login = (props) => {
   const [isPasswordValied, setIsPasswordValied] = useState(true);
   const [isFormValied, setIsFormValied] = useState(false);
 
+  useEffect(() => {
+    const timeOutRef = setTimeout(() => {
+      setIsFormValied(
+        enterdEmail.includes("@") && enterdPassword.trim().length > 6
+      );
+    }, 500);
+    return () => {
+      clearTimeout(timeOutRef);
+    };
+  }, [enterdEmail, enterdPassword]);
+
   const onEmailCahngeHandle = (value) => {
     setEnterdEmail(value);
-    setIsFormValied(value.includes("@") && enterdPassword.trim().length > 6);
   };
 
   const onPasswordChangeHandle = (value) => {
     setEnterdPassword(value);
-    setIsFormValied(value.trim().length > 6 && enterdEmail.includes("@"));
   };
 
   const onClickedLogin = (event) => {
     event.preventDefault();
-  
+
     if (!isFormValied) {
       validateEmailHandler();
       validatePasswordhandler();
@@ -57,7 +66,7 @@ const Login = (props) => {
           onBlur={validatePasswordhandler}
           error={isPasswordValied ? null : "Invalid password"}
         />
-        <AppButton type="submit" lable="Login" />
+        <AppButton type="submit" lable="Login" disabled={!isFormValied} />
       </form>
     </Card>
   );
